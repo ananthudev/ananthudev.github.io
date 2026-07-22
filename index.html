@@ -1,667 +1,1343 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ananthu Dev D V — Project Engineer &amp; Aerospace Defence Software Engineer at Spacelabs Analytics &amp; Dynamics. Specialising in Flight Software Development, Embedded Systems, Guidance Navigation &amp; Control (GNC), Aerospace Simulation, and Systems Integration."
+    />
+    <meta
+      name="keywords"
+      content="Ananthu Dev, Ananthu Dev D V, Project Engineer, Aerospace Software Engineer, Defence Software Engineer, Flight Software Development, Embedded Systems, Guidance Navigation Control, GNC, Aerospace Simulation, Systems Integration, Mission Critical Software, Embedded C, Python, MATLAB, Verification Validation, Aerospace India, Defence Technology, Spacelabs, ISRO, DRDO, Flight Software Engineer, Onboard Computer, Embedded Software, Real Time Systems, Kerala, India"
+    />
+    <meta name="author" content="Ananthu Dev D V" />
+    <meta name="robots" content="index, follow" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Ananthu Dev — Project Engineer in Aerospace & Defence. Specializing in onboard flight software, guidance algorithms in C, and embedded systems.">
-  <meta name="keywords"
-    content="Ananthu Dev, Project Engineer, Aerospace, Defence, Flight Software, Embedded C, Guidance Algorithms, Electronics Repair, Electrical Work, Car Enthusiast, Bike Enthusiast, Kerala, India">
+    <title>
+      Ananthu Dev D V | Aerospace &amp; Defence Software Engineer — Flight
+      Software &amp; Embedded Systems
+    </title>
 
-  <title>Ananthu Dev | Project Engineer — Aerospace & Defence</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ananthudev.github.io/" />
+    <meta
+      property="og:title"
+      content="Ananthu Dev D V | Aerospace &amp; Defence Software Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Project Engineer at Spacelabs Analytics &amp; Dynamics, specialising in Flight Software Development, Embedded Systems, GNC, Aerospace Simulation, and Systems Integration."
+    />
+    <meta
+      property="og:image"
+      content="https://ananthudev.github.io/assets/img/profile-img.jpg"
+    />
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon-32x32.png" rel="icon" type="image/png">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link rel="manifest" href="/site.webmanifest">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ananthudev_dv" />
+    <meta
+      name="twitter:title"
+      content="Ananthu Dev D V | Aerospace &amp; Defence Software Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Project Engineer at Spacelabs Analytics &amp; Dynamics, specialising in Flight Software Development, Embedded Systems, GNC, Aerospace Simulation, and Systems Integration."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ananthudev.github.io/assets/img/profile-img.jpg"
+    />
 
-  <!-- Google Fonts: Inter + Space Grotesk -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ananthu Dev D V",
+        "alternateName": "Ananthu Dev",
+        "jobTitle": "Project Engineer — Aerospace & Defence Software Engineer",
+        "description": "Aerospace & Defence Software Engineer specialising in Flight Software Development, Embedded Systems, Guidance Navigation & Control (GNC), Aerospace Simulation, Systems Integration, and Verification & Validation.",
+        "url": "https://ananthudev.github.io/",
+        "image": "https://ananthudev.github.io/assets/img/profile-img.jpg",
+        "email": "ananthudevdv@gmail.com",
+        "sameAs": [
+          "https://github.com/ananthudev",
+          "https://www.linkedin.com/in/ananthudev/",
+          "https://twitter.com/ananthudev_dv",
+          "https://www.instagram.com/ananthu_dev/"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Spacelabs Analytics and Dynamics PVT LTD"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "APJ Abdul Kalam Technological University"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Trivandrum",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": [
+          "Flight Software Development",
+          "Embedded Systems",
+          "Guidance Navigation & Control",
+          "Aerospace Simulation",
+          "Systems Integration",
+          "Mission-Critical Software",
+          "Verification & Validation",
+          "Embedded C",
+          "Python",
+          "MATLAB",
+          "C++",
+          "Electron.js",
+          "Real-Time Systems",
+          "Defence Technology"
+        ]
+      }
+    </script>
 
-  <!-- Bootstrap Icons (lightweight icon set) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Favicons -->
+    <link href="assets/img/favicon-32x32.png" rel="icon" type="image/png" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- GLightbox CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <!-- Google Fonts: Inter + Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Main CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
-</head>
+    <!-- Bootstrap Icons (lightweight icon set) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-<body>
+    <!-- GLightbox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-ring"></div>
+    <!-- Main CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-ring"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Custom Cursor -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-outline"></div>
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
 
-  <!-- ======= Sidebar Navigation ======= -->
-  <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
-    <i class="bi bi-list"></i>
-  </button>
+    <!-- ======= Sidebar Navigation ======= -->
+    <button
+      class="mobile-nav-toggle"
+      id="mobileNavToggle"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list"></i>
+    </button>
 
-  <header id="header">
-    <div class="header-inner">
-      <div class="profile-snippet">
-        <img src="assets/img/profile-img.jpg" alt="Ananthu Dev — Profile Photo" class="profile-thumb">
-        <div>
-          <h1 class="header-name">Ananthu Dev</h1>
-          <p class="header-role">Project Engineer</p>
+    <header id="header">
+      <div class="header-inner">
+        <div class="profile-snippet">
+          <img
+            src="assets/img/profile-img.jpg"
+            alt="Ananthu Dev D V — Aerospace & Defence Software Engineer"
+            class="profile-thumb"
+          />
+          <div>
+            <h1 class="header-name">Ananthu Dev D V</h1>
+            <p class="header-role">Aerospace &amp; Defence Software Engineer</p>
+          </div>
+        </div>
+
+        <nav id="navbar">
+          <ul>
+            <li>
+              <a href="#hero" class="nav-link scrollto active"
+                ><i class="bi bi-house-door"></i><span>Home</span></a
+              >
+            </li>
+            <li>
+              <a href="#about" class="nav-link scrollto"
+                ><i class="bi bi-person"></i><span>About</span></a
+              >
+            </li>
+            <li>
+              <a href="#skills" class="nav-link scrollto"
+                ><i class="bi bi-cpu"></i><span>Skills</span></a
+              >
+            </li>
+            <li>
+              <a href="#resume" class="nav-link scrollto"
+                ><i class="bi bi-file-earmark-text"></i><span>Resume</span></a
+              >
+            </li>
+            <li>
+              <a href="#portfolio" class="nav-link scrollto"
+                ><i class="bi bi-camera"></i><span>Photography</span></a
+              >
+            </li>
+            <li>
+              <a href="#research" class="nav-link scrollto"
+                ><i class="bi bi-journal-text"></i><span>Research</span></a
+              >
+            </li>
+            <li>
+              <a href="#articles" class="nav-link scrollto"
+                ><i class="bi bi-newspaper"></i><span>Articles</span></a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="nav-link scrollto"
+                ><i class="bi bi-envelope"></i><span>Contact</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-social">
+          <a
+            href="https://github.com/ananthudev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            ><i class="bi bi-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/ananthudev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+          <a
+            href="https://twitter.com/ananthudev_dv"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            ><i class="bi bi-twitter-x"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ananthu_dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="bi bi-instagram"></i
+          ></a>
         </div>
       </div>
+    </header>
+    <!-- ======= End Header ======= -->
 
-      <nav id="navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bi bi-house-door"></i><span>Home</span></a>
-          </li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person"></i><span>About</span></a></li>
-          <li><a href="#skills" class="nav-link scrollto"><i class="bi bi-cpu"></i><span>Skills</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bi bi-file-earmark-text"></i><span>Resume</span></a>
-          </li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bi bi-camera"></i><span>Photography</span></a>
-          </li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i><span>Contact</span></a></li>
-        </ul>
-      </nav>
+    <!-- Overlay for mobile nav -->
+    <div id="nav-overlay"></div>
 
-      <div class="header-social">
-        <a href="https://github.com/ananthudev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-            class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/ananthudev/" target="_blank" rel="noopener noreferrer"
-          aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://twitter.com/ananthudev_dv" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
-            class="bi bi-twitter-x"></i></a>
-        <a href="https://www.instagram.com/ananthu_dev/" target="_blank" rel="noopener noreferrer"
-          aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      </div>
-    </div>
-  </header>
-  <!-- ======= End Header ======= -->
+    <main id="main">
+      <!-- ======= Hero Section ======= -->
+      <section id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow">Hello, World. I'm</p>
+          <h1 class="hero-name">Ananthu Dev D V</h1>
+          <p class="hero-typed-line">
+            <span
+              class="typed"
+              data-typed-items="Aerospace &amp; Defence Software Engineer,Flight Software Engineer,Embedded Systems Engineer,GNC Software Developer,Project Engineer,Mission-Critical Software"
+            ></span>
+          </p>
+          <p class="hero-sub">
+            Developing mission-critical software for Aerospace &amp; Defence
+            applications, specialising in Flight Software Development, Embedded
+            Systems, Guidance Navigation &amp; Control (GNC), Aerospace
+            Simulation, and Systems Integration.
+          </p>
+          <div class="hero-actions">
+            <a href="#about" class="btn-primary scrollto"
+              >Explore My Work <i class="bi bi-arrow-down"></i
+            ></a>
+            <a href="#contact" class="btn-outline scrollto">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-scroll-indicator">
+          <span></span>
+        </div>
+      </section>
+      <!-- ======= End Hero Section ======= -->
 
-  <!-- Overlay for mobile nav -->
-  <div id="nav-overlay"></div>
+      <!-- ======= About Section ======= -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// WHO I AM</span>
+            <h2 class="section-title">About Me</h2>
+          </div>
 
-  <main id="main">
+          <div class="about-grid">
+            <div class="about-image reveal-item">
+              <div class="about-img-wrap">
+                <img
+                  src="assets/img/profile-img.jpg"
+                  alt="Ananthu Dev D V — Aerospace &amp; Defence Software Engineer"
+                  loading="lazy"
+                />
+                <div class="about-img-border"></div>
+              </div>
+            </div>
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
-      <div class="hero-bg-grid"></div>
-      <div class="hero-content">
-        <p class="hero-eyebrow">Hello, World. I'm</p>
-        <h1 class="hero-name">Ananthu Dev</h1>
-        <p class="hero-typed-line">
-          <span class="typed"
-            data-typed-items="Project Engineer,Aerospace & Defence,C Programmer,Coedr, Web Developer,Embedded Systems,Sparky,Photography Hobbyist"></span>
+            <div class="about-content reveal-item">
+              <h3>
+                Project Engineer
+                <span class="accent"
+                  >— Aerospace &amp; Defence Software Engineer</span
+                >
+              </h3>
+              <p>
+                I am a Project Engineer at
+                <strong class="accent"
+                  >Spacelabs Analytics &amp; Dynamics</strong
+                >, developing mission-critical software for Aerospace &amp;
+                Defence applications. My work spans Flight Software Development,
+                Flight Software Sequencer Design, Guidance Software
+                Architecture, GNC Integration, and Embedded Systems — domains
+                where precision, reliability, and real-time performance are
+                non-negotiable.
+              </p>
+              <p>
+                I developed <strong class="accent">ASTRA GUI</strong> — a
+                ground-support desktop application built with Electron.js,
+                integrated with a C++ backend — enabling mission simulation,
+                telemetry analysis, and hardware interaction. My engineering
+                work also covers Model-in-the-Loop (MIL) Simulation, Orbit
+                Determination, Numerical Propagation, Frame Transformations,
+                Satellite Simulation, Technical Documentation, Proposal
+                Development, and Cross-functional Engineering.
+              </p>
+              <p>
+                Outside of engineering, I go by
+                <strong class="accent">Sparky</strong> — with a deep passion for
+                electronics diagnostics, automotive electrical systems, and
+                bringing broken hardware back to life. I'm also a car and bike
+                enthusiast, and I carry a camera whenever I can — street
+                photography and macro are my creative outlets of choice.
+              </p>
+
+              <div class="info-grid">
+                <div class="info-item">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <div>
+                    <span class="info-label">Location</span>
+                    <span class="info-value">Trivandrum, Kerala, India</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-envelope-fill"></i>
+                  <div>
+                    <span class="info-label">Email</span>
+                    <span class="info-value">ananthudevdv@gmail.com</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-mortarboard-fill"></i>
+                  <div>
+                    <span class="info-label">Degree</span>
+                    <span class="info-value"
+                      >MCA — Master of Computer Applications</span
+                    >
+                  </div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-briefcase-fill"></i>
+                  <div>
+                    <span class="info-label">Current Role</span>
+                    <span class="info-value"
+                      >Project Engineer — Aerospace &amp; Defence Engineer</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End About Section ======= -->
+
+      <!-- ======= Skills Section ======= -->
+      <section id="skills" class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// TECHNICAL PROFICIENCY</span>
+            <h2 class="section-title">Skills</h2>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-group reveal-item">
+              <h4 class="skill-group-title">
+                <i class="bi bi-cpu-fill"></i> Aerospace &amp; Engineering
+              </h4>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Flight Software Development</span
+                  ><span class="skill-val">90%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Embedded C / C</span><span class="skill-val">90%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Guidance, Navigation &amp; Control (GNC)</span
+                  ><span class="skill-val">80%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Systems Integration</span
+                  ><span class="skill-val">80%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Aerospace Simulation</span
+                  ><span class="skill-val">75%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Verification &amp; Validation</span
+                  ><span class="skill-val">75%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Python</span><span class="skill-val">70%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>MATLAB / Simulink</span
+                  ><span class="skill-val">65%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="65"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-group reveal-item">
+              <h4 class="skill-group-title">
+                <i class="bi bi-code-slash"></i> Tools &amp; Web
+              </h4>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>HTML / CSS</span><span class="skill-val">95%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>Git / Linux</span><span class="skill-val">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>C++ / Electron.js</span
+                  ><span class="skill-val">70%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>JavaScript / Django</span
+                  ><span class="skill-val">75%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-info">
+                  <span>MySQL / PostgreSQL</span
+                  ><span class="skill-val">80%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-width="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Skills Section ======= -->
+
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="section">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// CAREER TIMELINE</span>
+            <h2 class="section-title">Resume</h2>
+          </div>
+
+          <div class="resume-grid">
+            <!-- Left Column: Experience -->
+            <div class="resume-col">
+              <h3 class="resume-col-title reveal-item">
+                <i class="bi bi-briefcase"></i> Experience
+              </h3>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2025 — Present</span>
+                  <h4>Project Engineer</h4>
+                  <h5>Spacelabs Analytics and Dynamics PVT LTD</h5>
+                  <ul>
+                    <li>
+                      Flight Software Development and Flight Software Sequencer
+                      Architecture for mission-critical Aerospace &amp; Defence
+                      systems
+                    </li>
+                    <li>
+                      Guidance Software Architecture and GNC (Guidance,
+                      Navigation &amp; Control) integration for precision-guided
+                      defence applications
+                    </li>
+                    <li>
+                      Developed <strong>ASTRA GUI</strong> — a ground-support
+                      desktop application using Electron.js with a C++ backend,
+                      enabling mission simulation, telemetry analysis, and
+                      hardware interaction
+                    </li>
+                    <li>
+                      Model-in-the-Loop (MIL) Simulation for early-stage
+                      software verification and system validation
+                    </li>
+                    <li>
+                      Orbit Determination, Numerical Propagation, Frame
+                      Transformations, and Satellite Simulation
+                    </li>
+                    <li>
+                      Embedded Software development for onboard computer systems
+                    </li>
+                    <li>
+                      Hardware integration, systems testing, and Verification
+                      &amp; Validation of onboard software
+                    </li>
+                    <li>Technical Documentation and Proposal Development</li>
+                    <li>
+                      Cross-functional engineering collaboration across
+                      software, hardware, and systems teams
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">01/2024 — 06/2024</span>
+                  <h4>Project Intern & Trainee</h4>
+                  <h5>Ainsurtech</h5>
+                  <p>
+                    Internship focused on full-stack web development. Underwent
+                    extensive training in HTML, CSS, JavaScript, AJAX, jQuery,
+                    Python, and the Django framework. Successfully completed all
+                    assigned company requirements and project milestones.
+                  </p>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2019 — 2022</span>
+                  <h4>Co-Owner / Manager</h4>
+                  <h5>MG Supermarket, Trivandrum</h5>
+                  <p>
+                    Managed daily operations, inventory management, financial
+                    tracking, and a team of employees. Developed business
+                    strategy and maintained supplier and customer relationships.
+                  </p>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2017 — Present</span>
+                  <h4>Freelancer</h4>
+                  <h5>Self-Employed</h5>
+                  <ul>
+                    <li>Computer systems troubleshooting & repair</li>
+                    <li>
+                      <strong>Sparky</strong> — Electronics & electrical
+                      diagnostics and repair
+                    </li>
+                    <li>
+                      <strong>Sparky</strong> — Automotive electrical & wiring
+                      (cars & bikes)
+                    </li>
+                    <li>Data recovery</li>
+                    <li>Responsive website design & development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Education -->
+            <div class="resume-col">
+              <h3 class="resume-col-title reveal-item">
+                <i class="bi bi-mortarboard"></i> Education
+              </h3>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2022 — 2024</span>
+                  <h4>Master of Computer Applications (MCA)</h4>
+                  <h5>APJ Abdul Kalam Technological University</h5>
+                  <p>
+                    Lourdes Matha College of Science and Technology, Kuttichal,
+                    Thiruvananthapuram
+                  </p>
+                  <ul>
+                    <li>Class Representative — First Semester</li>
+                    <li>
+                      Verismo (Techno Cultural Fest, MCA Dept.) Coordinator —
+                      2022 & 2023
+                    </li>
+                    <li>
+                      🏆
+                      <strong
+                        >Special Performance Award for Departmental Activities
+                        2022–24</strong
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2019 — 2022</span>
+                  <h4>Bachelor of Computer Applications (BCA)</h4>
+                  <h5>University of Kerala</h5>
+                  <p>
+                    Vigyaan College of Applied Sciences, Kattakode —
+                    <strong>CGPA: 7.7/10</strong>
+                  </p>
+                  <ul>
+                    <li>🏆 <strong>Class Topper — All Semesters</strong></li>
+                    <li>
+                      Class Representative, NSS Volunteer, Discipline Committee
+                      Head, Student Coordinator
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">10/2022 — 06/2024</span>
+                  <h4>Executive Committee Member — Media Head</h4>
+                  <h5>KTU MCA Students Community</h5>
+                  <p>
+                    Managed digital platforms for a community of students from
+                    27 KTU-affiliated colleges.
+                  </p>
+                  <ul>
+                    <li>
+                      Managed Telegram, WhatsApp, and Instagram platforms for
+                      the student community
+                    </li>
+                    <li>
+                      Acted as central contact for student guidance, addressing
+                      queries and concerns
+                    </li>
+                    <li>
+                      Curated and posted relevant academic content and
+                      promotional materials
+                    </li>
+                    <li>
+                      Oversaw platform administration to ensure a positive and
+                      engaging environment
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2018 — 2019</span>
+                  <h4>Diploma in Photography & Videography</h4>
+                  <h5>Trivandrum Institute of Photography</h5>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">2017</span>
+                  <h4>Ultimate & Foundation Diploma in Photography</h4>
+                  <h5>Shaw Academy</h5>
+                </div>
+              </div>
+
+              <div class="timeline-item reveal-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <span class="timeline-date">School</span>
+                  <h4>Class 10 & 12 — Kerala State Board</h4>
+                  <h5>Abraham Memorial Higher Secondary School, Trivandrum</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Resume Section ======= -->
+
+      <!-- ======= Photography / Portfolio Section ======= -->
+      <section id="portfolio" class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// THROUGH THE LENS</span>
+            <h2 class="section-title">Photography</h2>
+            <p class="section-desc">
+              Street photography, macro, and everyday moments — captured as a
+              hobby.
+            </p>
+          </div>
+
+          <div class="portfolio-filters reveal-item">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="street">Street</button>
+            <button class="filter-btn" data-filter="people">People</button>
+          </div>
+
+          <div class="masonry-grid" id="masonryGrid">
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-1.jpg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Palayam Market — A silhouette of a man passing through an alleyway"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-1.jpg"
+                  alt="Silhouette of a man in Palayam Market alleyway"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Palayam Market</span>
+                  <span class="masonry-tag">Street</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item people">
+              <a
+                href="assets/img/portfolio/portfolio-2.jpg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="SMV School Relief Camp — Kerala Floods"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-2.jpg"
+                  alt="SMV School relief camp during Kerala floods"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">SMV School</span>
+                  <span class="masonry-tag">People</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-3.jpg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Taj Hotel Mumbai — 2017"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-3.jpg"
+                  alt="Taj Hotel Mumbai — 2017"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Taj Hotel Mumbai</span>
+                  <span class="masonry-tag">Street</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-4.jpg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Red Ant — Macro shot with Sony Xperia Z3 Plus + Macro Lens"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-4.jpg"
+                  alt="Macro photo of a red ant"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Red Ant</span>
+                  <span class="masonry-tag">Macro</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-5.jpg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Glass of Tea — Bokeh effect"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-5.jpg"
+                  alt="Glass of tea with bokeh effect"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Tea</span>
+                  <span class="masonry-tag">Still Life</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-6.jpeg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Cradles"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-6.jpeg"
+                  alt="Cradles"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Cradles</span>
+                  <span class="masonry-tag">Street</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-7.jpeg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Cigarette"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-7.jpeg"
+                  alt="Cigarette street photograph"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Cigarette</span>
+                  <span class="masonry-tag">Street</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-8.jpeg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Moon — Zoomed view showing visible craters"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-8.jpeg"
+                  alt="Zoomed view of the moon showing craters"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Moon</span>
+                  <span class="masonry-tag">Astrophotography</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item people">
+              <a
+                href="assets/img/portfolio/portfolio-9.JPG"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Palayam Market"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-9.JPG"
+                  alt="Palayam Market — people"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Palayam Market</span>
+                  <span class="masonry-tag">People</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-11.jpeg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Fly — Macro shot with Sony Xperia Z3 Plus + Macro Lens"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-11.jpeg"
+                  alt="Macro photograph of a fly"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Fly</span>
+                  <span class="masonry-tag">Macro</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item people">
+              <a
+                href="assets/img/portfolio/portfolio-13.jpeg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Palayam Market"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-13.jpeg"
+                  alt="Palayam Market — street scene"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Palayam Market</span>
+                  <span class="masonry-tag">People</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="masonry-item street">
+              <a
+                href="assets/img/portfolio/portfolio-12.jpeg"
+                class="portfolio-lightbox"
+                data-gallery="photos"
+                title="Cat — Palayam Market"
+              >
+                <img
+                  src="assets/img/portfolio/portfolio-12.jpeg"
+                  alt="Cat at Palayam Market"
+                  loading="lazy"
+                />
+                <div class="masonry-overlay">
+                  <span class="masonry-title">Cat</span>
+                  <span class="masonry-tag">Street</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Portfolio Section ======= -->
+
+      <!-- ======= Research Interests Section ======= -->
+      <section id="research" class="section">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// AREAS OF INTEREST</span>
+            <h2 class="section-title">Research Interests</h2>
+            <p class="section-desc">
+              Technical domains I am deeply engaged with as an Aerospace &amp;
+              Defence Software Engineer.
+            </p>
+          </div>
+
+          <div class="research-grid reveal-item">
+            <div class="research-card">
+              <i class="bi bi-rocket-takeoff-fill research-icon"></i>
+              <h4>Flight Software Development</h4>
+              <p>
+                Architecture, design, and implementation of onboard flight
+                software for aerospace and defence vehicles.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-cpu-fill research-icon"></i>
+              <h4>Embedded Systems &amp; RTOS</h4>
+              <p>
+                Real-time embedded software for mission-critical and
+                safety-critical onboard computer systems.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-compass-fill research-icon"></i>
+              <h4>Guidance, Navigation &amp; Control</h4>
+              <p>
+                GNC algorithm design, implementation, and integration for
+                precision-guided aerospace and defence applications.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-diagram-3-fill research-icon"></i>
+              <h4>Mission Planning &amp; Sequencing</h4>
+              <p>
+                Mission sequencer architecture, command sequencing, and onboard
+                autonomy for aerospace systems.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-globe2 research-icon"></i>
+              <h4>Aerospace Simulation</h4>
+              <p>
+                Model-in-the-Loop (MIL), Software-in-the-Loop (SIL), and
+                Hardware-in-the-Loop (HIL) simulation environments.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-layers-fill research-icon"></i>
+              <h4>Systems Engineering</h4>
+              <p>
+                End-to-end systems integration, interface management, and
+                cross-functional engineering in aerospace programmes.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-shield-check research-icon"></i>
+              <h4>Mission-Critical Software</h4>
+              <p>
+                Design patterns, fault tolerance, and safety considerations for
+                software operating in high-stakes environments.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-check2-all research-icon"></i>
+              <h4>Verification &amp; Validation</h4>
+              <p>
+                Systematic V&amp;V methodologies, test automation, and
+                traceability for aerospace and defence software.
+              </p>
+            </div>
+            <div class="research-card">
+              <i class="bi bi-activity research-icon"></i>
+              <h4>Defence Technology</h4>
+              <p>
+                Emerging trends, indigenous development, and technology advances
+                in Indian and global defence systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Research Interests Section ======= -->
+
+      <!-- ======= Articles Section ======= -->
+      <section id="articles" class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// TECHNICAL WRITING</span>
+            <h2 class="section-title">Articles</h2>
+            <p class="section-desc">
+              Technical articles on Aerospace Software Engineering, Embedded
+              Systems, and Flight Software — coming soon.
+            </p>
+          </div>
+
+          <div class="articles-grid reveal-item">
+            <div class="article-card">
+              <div class="article-badge">Coming Soon</div>
+              <i class="bi bi-file-earmark-code-fill article-icon"></i>
+              <h4>Understanding Flight Software Architecture</h4>
+              <p>
+                An introduction to the architectural patterns and design
+                principles behind onboard flight software for aerospace
+                vehicles.
+              </p>
+              <span class="article-tag">Flight Software</span>
+            </div>
+            <div class="article-card">
+              <div class="article-badge">Coming Soon</div>
+              <i class="bi bi-file-earmark-code-fill article-icon"></i>
+              <h4>Model-in-the-Loop Simulation for Aerospace</h4>
+              <p>
+                A practical guide to MIL simulation environments — their role in
+                early software verification and system validation.
+              </p>
+              <span class="article-tag">Simulation</span>
+            </div>
+            <div class="article-card">
+              <div class="article-badge">Coming Soon</div>
+              <i class="bi bi-file-earmark-code-fill article-icon"></i>
+              <h4>Embedded Software Design Patterns</h4>
+              <p>
+                Proven design patterns for building reliable, maintainable
+                embedded software in resource-constrained environments.
+              </p>
+              <span class="article-tag">Embedded Systems</span>
+            </div>
+            <div class="article-card">
+              <div class="article-badge">Coming Soon</div>
+              <i class="bi bi-file-earmark-code-fill article-icon"></i>
+              <h4>Telemetry Analysis Techniques</h4>
+              <p>
+                Methods and tools for processing, visualising, and interpreting
+                telemetry data from aerospace and defence systems.
+              </p>
+              <span class="article-tag">Telemetry</span>
+            </div>
+            <div class="article-card">
+              <div class="article-badge">Coming Soon</div>
+              <i class="bi bi-file-earmark-code-fill article-icon"></i>
+              <h4>Mission Sequencing in Defence Systems</h4>
+              <p>
+                How mission sequencers are designed, implemented, and validated
+                in precision-guided defence applications.
+              </p>
+              <span class="article-tag">Mission Systems</span>
+            </div>
+            <div class="article-card">
+              <div class="article-badge">Coming Soon</div>
+              <i class="bi bi-file-earmark-code-fill article-icon"></i>
+              <h4>Verification &amp; Validation in Aerospace Software</h4>
+              <p>
+                A deep dive into V&amp;V methodologies, test strategies, and
+                traceability for safety-critical aerospace software.
+              </p>
+              <span class="article-tag">V&amp;V</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Articles Section ======= -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <span class="section-tag">// LET'S TALK</span>
+            <h2 class="section-title">Get In Touch</h2>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-info reveal-item">
+              <p class="contact-intro">
+                Whether you're from an aerospace or defence organisation, a
+                research institution, or simply want to discuss flight software,
+                embedded systems, or GNC — I'm always open to a conversation.
+              </p>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div>
+                  <h5>Location</h5>
+                  <p>Malayinkeezhu, Trivandrum, Kerala 695571, India</p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div>
+                  <h5>Email</h5>
+                  <p>
+                    <a href="mailto:ananthudevdv@gmail.com"
+                      >ananthudevdv@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div>
+                  <h5>Phone</h5>
+                  <p><a href="tel:+918075669992">+91 807 566 9992</a></p>
+                </div>
+              </div>
+
+              <div class="contact-socials">
+                <a
+                  href="https://github.com/ananthudev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  ><i class="bi bi-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/ananthudev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a
+                  href="https://twitter.com/ananthudev_dv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/ananthu_dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+            </div>
+
+            <form class="contact-form reveal-item" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="visually-hidden">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email" class="visually-hidden">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject" class="visually-hidden">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message" class="visually-hidden">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary form-submit">
+                Send Message <i class="bi bi-send"></i>
+              </button>
+              <div id="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Contact Section ======= -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <p class="footer-name">Ananthu Dev D V</p>
+        <p class="footer-role-line">
+          Project Engineer &nbsp;&middot;&nbsp; Aerospace &amp; Defence Software
+          Engineer &nbsp;&middot;&nbsp; Flight Software Development
         </p>
-        <p class="hero-sub">Building onboard flight software and guidance algorithms for the next generation of
-          aerospace & defence systems.</p>
-        <div class="hero-actions">
-          <a href="#about" class="btn-primary scrollto">Explore My Work <i class="bi bi-arrow-down"></i></a>
-          <a href="#contact" class="btn-outline scrollto">Get In Touch</a>
-        </div>
+        <p class="footer-quote">"Fall Down Seven Times, Get Up Eight."</p>
+        <p class="footer-copy">
+          &copy; <span id="footerYear"></span> <strong>Ananthu Dev D V</strong>.
+          All Rights Reserved.
+        </p>
       </div>
-      <div class="hero-scroll-indicator">
-        <span></span>
-      </div>
-    </section>
-    <!-- ======= End Hero Section ======= -->
+    </footer>
+    <!-- ======= End Footer ======= -->
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-header reveal-item">
-          <span class="section-tag">// WHO I AM</span>
-          <h2 class="section-title">About Me</h2>
-        </div>
+    <!-- Back to top -->
+    <a
+      href="#hero"
+      class="back-to-top scrollto"
+      id="backToTop"
+      aria-label="Back to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </a>
 
-        <div class="about-grid">
-          <div class="about-image reveal-item">
-            <div class="about-img-wrap">
-              <img src="assets/img/profile-img.jpg" alt="Ananthu Dev — Project Engineer, Aerospace and Defence"
-                loading="lazy">
-              <div class="about-img-border"></div>
-            </div>
-          </div>
+    <!-- ======= Scripts ======= -->
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+    <!-- GLightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-          <div class="about-content reveal-item">
-            <h3>Project Engineer <span class="accent">— Aerospace & Defence</span></h3>
-            <p>I work on onboard computer flight software and guidance algorithms in C for aerospace and defence
-              applications. My work sits at the intersection of precision engineering and real-time embedded systems —
-              where every line of code matters.</p>
-            <p>Outside of software, I go by <strong class="accent">Sparky</strong> — I have a deep passion for
-              everything electrical and electronic. I enjoy diagnosing and repairing consumer electronics, home
-              electrical systems, and automotive wiring. The satisfaction of bringing something broken back to life is
-              unmatched.</p>
-            <p>I'm also a car and bike enthusiast, always curious about what's under the hood. And I carry a camera
-              whenever I can — street photography and macro work are my creative outlets of choice.</p>
-
-            <div class="info-grid">
-              <div class="info-item">
-                <i class="bi bi-geo-alt-fill"></i>
-                <div>
-                  <span class="info-label">Location</span>
-                  <span class="info-value">Trivandrum, Kerala, India</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <i class="bi bi-envelope-fill"></i>
-                <div>
-                  <span class="info-label">Email</span>
-                  <span class="info-value">ananthudevdv@gmail.com</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <i class="bi bi-mortarboard-fill"></i>
-                <div>
-                  <span class="info-label">Degree</span>
-                  <span class="info-value">MCA — Master of Computer Applications</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <i class="bi bi-briefcase-fill"></i>
-                <div>
-                  <span class="info-label">Status</span>
-                  <span class="info-value">Employed — Spacelabs Analytics and Dynamics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======= End About Section ======= -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <div class="section-header reveal-item">
-          <span class="section-tag">// TECHNICAL PROFICIENCY</span>
-          <h2 class="section-title">Skills</h2>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-group reveal-item">
-            <h4 class="skill-group-title"><i class="bi bi-cpu-fill"></i> Engineering & Systems</h4>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>C / Embedded C</span><span class="skill-val">90%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>Python</span><span class="skill-val">65%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="65"></div>
-              </div>
-            </div>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>Guidance Algorithms</span><span class="skill-val">80%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="80"></div>
-              </div>
-            </div>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>Real-Time Systems</span><span class="skill-val">75%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="75"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-group reveal-item">
-            <h4 class="skill-group-title"><i class="bi bi-code-slash"></i> Web & Software</h4>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>HTML / CSS</span><span class="skill-val">95%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="95"></div>
-              </div>
-            </div>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>JavaScript</span><span class="skill-val">75%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="75"></div>
-              </div>
-            </div>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>Django / Python Web</span><span class="skill-val">70%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="70"></div>
-              </div>
-            </div>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-info"><span>MySQL / PostgreSQL</span><span class="skill-val">80%</span></div>
-              <div class="progress-track">
-                <div class="progress-fill" data-width="80"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======= End Skills Section ======= -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="section">
-      <div class="container">
-        <div class="section-header reveal-item">
-          <span class="section-tag">// CAREER TIMELINE</span>
-          <h2 class="section-title">Resume</h2>
-        </div>
-
-        <div class="resume-grid">
-
-          <!-- Left Column: Experience -->
-          <div class="resume-col">
-            <h3 class="resume-col-title reveal-item"><i class="bi bi-briefcase"></i> Experience</h3>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2025 — Present</span>
-                <h4>Project Engineer</h4>
-                <h5>Spacelabs Analytics and Dynamics PVT LTD</h5>
-                <p>Developing onboard computer flight software and guidance algorithms in C for aerospace and defence
-                  systems. Working on mission-critical embedded software where precision, reliability, and real-time
-                  performance are paramount.</p>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">01/2024 — 06/2024</span>
-                <h4>Project Intern & Trainee</h4>
-                <h5>Ainsurtech</h5>
-                <p>Internship focused on full-stack web development. Underwent extensive training in HTML, CSS,
-                  JavaScript, AJAX, jQuery, Python, and the Django framework. Successfully completed all assigned
-                  company requirements and project milestones.</p>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2019 — 2022</span>
-                <h4>Co-Owner / Manager</h4>
-                <h5>MG Supermarket, Trivandrum</h5>
-                <p>Managed daily operations, inventory management, financial tracking, and a team of employees.
-                  Developed business strategy and maintained supplier and customer relationships.</p>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2017 — Present</span>
-                <h4>Freelancer</h4>
-                <h5>Self-Employed</h5>
-                <ul>
-                  <li>Computer systems troubleshooting & repair</li>
-                  <li><strong>Sparky</strong> — Electronics & electrical diagnostics and repair</li>
-                  <li><strong>Sparky</strong> — Automotive electrical & wiring (cars & bikes)</li>
-                  <li>Data recovery</li>
-                  <li>Responsive website design & development</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Education -->
-          <div class="resume-col">
-            <h3 class="resume-col-title reveal-item"><i class="bi bi-mortarboard"></i> Education</h3>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2022 — 2024</span>
-                <h4>Master of Computer Applications (MCA)</h4>
-                <h5>APJ Abdul Kalam Technological University</h5>
-                <p>Lourdes Matha College of Science and Technology, Kuttichal, Thiruvananthapuram</p>
-                <ul>
-                  <li>Class Representative — First Semester</li>
-                  <li>Verismo (Techno Cultural Fest, MCA Dept.) Coordinator — 2022 & 2023</li>
-                  <li>🏆 <strong>Special Performance Award for Departmental Activities 2022–24</strong></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2019 — 2022</span>
-                <h4>Bachelor of Computer Applications (BCA)</h4>
-                <h5>University of Kerala</h5>
-                <p>Vigyaan College of Applied Sciences, Kattakode — <strong>CGPA: 7.7/10</strong></p>
-                <ul>
-                  <li>🏆 <strong>Class Topper — All Semesters</strong></li>
-                  <li>Class Representative, NSS Volunteer, Discipline Committee Head, Student Coordinator</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">10/2022 — 06/2024</span>
-                <h4>Executive Committee Member — Media Head</h4>
-                <h5>KTU MCA Students Community</h5>
-                <p>Managed digital platforms for a community of students from 27 KTU-affiliated colleges.</p>
-                <ul>
-                  <li>Managed Telegram, WhatsApp, and Instagram platforms for the student community</li>
-                  <li>Acted as central contact for student guidance, addressing queries and concerns</li>
-                  <li>Curated and posted relevant academic content and promotional materials</li>
-                  <li>Oversaw platform administration to ensure a positive and engaging environment</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2018 — 2019</span>
-                <h4>Diploma in Photography & Videography</h4>
-                <h5>Trivandrum Institute of Photography</h5>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">2017</span>
-                <h4>Ultimate & Foundation Diploma in Photography</h4>
-                <h5>Shaw Academy</h5>
-              </div>
-            </div>
-
-            <div class="timeline-item reveal-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <span class="timeline-date">School</span>
-                <h4>Class 10 & 12 — Kerala State Board</h4>
-                <h5>Abraham Memorial Higher Secondary School, Trivandrum</h5>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- ======= End Resume Section ======= -->
-
-    <!-- ======= Photography / Portfolio Section ======= -->
-    <section id="portfolio" class="section section-alt">
-      <div class="container">
-        <div class="section-header reveal-item">
-          <span class="section-tag">// THROUGH THE LENS</span>
-          <h2 class="section-title">Photography</h2>
-          <p class="section-desc">Street photography, macro, and everyday moments — captured as a hobby.</p>
-        </div>
-
-        <div class="portfolio-filters reveal-item">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="street">Street</button>
-          <button class="filter-btn" data-filter="people">People</button>
-        </div>
-
-        <div class="masonry-grid" id="masonryGrid">
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-1.jpg" class="portfolio-lightbox" data-gallery="photos"
-              title="Palayam Market — A silhouette of a man passing through an alleyway">
-              <img src="assets/img/portfolio/portfolio-1.jpg" alt="Silhouette of a man in Palayam Market alleyway"
-                loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Palayam Market</span>
-                <span class="masonry-tag">Street</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item people">
-            <a href="assets/img/portfolio/portfolio-2.jpg" class="portfolio-lightbox" data-gallery="photos"
-              title="SMV School Relief Camp — Kerala Floods">
-              <img src="assets/img/portfolio/portfolio-2.jpg" alt="SMV School relief camp during Kerala floods"
-                loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">SMV School</span>
-                <span class="masonry-tag">People</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-3.jpg" class="portfolio-lightbox" data-gallery="photos"
-              title="Taj Hotel Mumbai — 2017">
-              <img src="assets/img/portfolio/portfolio-3.jpg" alt="Taj Hotel Mumbai — 2017" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Taj Hotel Mumbai</span>
-                <span class="masonry-tag">Street</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-4.jpg" class="portfolio-lightbox" data-gallery="photos"
-              title="Red Ant — Macro shot with Sony Xperia Z3 Plus + Macro Lens">
-              <img src="assets/img/portfolio/portfolio-4.jpg" alt="Macro photo of a red ant" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Red Ant</span>
-                <span class="masonry-tag">Macro</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-5.jpg" class="portfolio-lightbox" data-gallery="photos"
-              title="Glass of Tea — Bokeh effect">
-              <img src="assets/img/portfolio/portfolio-5.jpg" alt="Glass of tea with bokeh effect" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Tea</span>
-                <span class="masonry-tag">Still Life</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-6.jpeg" class="portfolio-lightbox" data-gallery="photos"
-              title="Cradles">
-              <img src="assets/img/portfolio/portfolio-6.jpeg" alt="Cradles" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Cradles</span>
-                <span class="masonry-tag">Street</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-7.jpeg" class="portfolio-lightbox" data-gallery="photos"
-              title="Cigarette">
-              <img src="assets/img/portfolio/portfolio-7.jpeg" alt="Cigarette street photograph" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Cigarette</span>
-                <span class="masonry-tag">Street</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-8.jpeg" class="portfolio-lightbox" data-gallery="photos"
-              title="Moon — Zoomed view showing visible craters">
-              <img src="assets/img/portfolio/portfolio-8.jpeg" alt="Zoomed view of the moon showing craters"
-                loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Moon</span>
-                <span class="masonry-tag">Astrophotography</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item people">
-            <a href="assets/img/portfolio/portfolio-9.JPG" class="portfolio-lightbox" data-gallery="photos"
-              title="Palayam Market">
-              <img src="assets/img/portfolio/portfolio-9.JPG" alt="Palayam Market — people" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Palayam Market</span>
-                <span class="masonry-tag">People</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-11.jpeg" class="portfolio-lightbox" data-gallery="photos"
-              title="Fly — Macro shot with Sony Xperia Z3 Plus + Macro Lens">
-              <img src="assets/img/portfolio/portfolio-11.jpeg" alt="Macro photograph of a fly" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Fly</span>
-                <span class="masonry-tag">Macro</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item people">
-            <a href="assets/img/portfolio/portfolio-13.jpeg" class="portfolio-lightbox" data-gallery="photos"
-              title="Palayam Market">
-              <img src="assets/img/portfolio/portfolio-13.jpeg" alt="Palayam Market — street scene" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Palayam Market</span>
-                <span class="masonry-tag">People</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="masonry-item street">
-            <a href="assets/img/portfolio/portfolio-12.jpeg" class="portfolio-lightbox" data-gallery="photos"
-              title="Cat — Palayam Market">
-              <img src="assets/img/portfolio/portfolio-12.jpeg" alt="Cat at Palayam Market" loading="lazy">
-              <div class="masonry-overlay">
-                <span class="masonry-title">Cat</span>
-                <span class="masonry-tag">Street</span>
-              </div>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- ======= End Portfolio Section ======= -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-header reveal-item">
-          <span class="section-tag">// LET'S TALK</span>
-          <h2 class="section-title">Get In Touch</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info reveal-item">
-            <p class="contact-intro">Whether you have a project idea, a collaboration in mind, or just want to connect —
-              my inbox is always open.</p>
-
-            <div class="contact-detail">
-              <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
-              <div>
-                <h5>Location</h5>
-                <p>Malayinkeezhu, Trivandrum, Kerala 695571, India</p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
-              <div>
-                <h5>Email</h5>
-                <p><a href="mailto:ananthudevdv@gmail.com">ananthudevdv@gmail.com</a></p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
-              <div>
-                <h5>Phone</h5>
-                <p><a href="tel:+918075669992">+91 807 566 9992</a></p>
-              </div>
-            </div>
-
-            <div class="contact-socials">
-              <a href="https://github.com/ananthudev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-                  class="bi bi-github"></i></a>
-              <a href="https://www.linkedin.com/in/ananthudev/" target="_blank" rel="noopener noreferrer"
-                aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-              <a href="https://twitter.com/ananthudev_dv" target="_blank" rel="noopener noreferrer"
-                aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-              <a href="https://www.instagram.com/ananthu_dev/" target="_blank" rel="noopener noreferrer"
-                aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            </div>
-          </div>
-
-          <form class="contact-form reveal-item" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name" class="visually-hidden">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group">
-                <label for="email" class="visually-hidden">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="subject" class="visually-hidden">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group">
-              <label for="message" class="visually-hidden">Message</label>
-              <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary form-submit">
-              Send Message <i class="bi bi-send"></i>
-            </button>
-            <div id="form-status"></div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <!-- ======= End Contact Section ======= -->
-
-  </main>
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <p class="footer-quote">"Fall Down Seven Times, Get Up Eight."</p>
-      <p class="footer-copy">&copy; <span id="footerYear"></span> <strong>Ananthu Dev</strong>. All Rights Reserved.</p>
-    </div>
-  </footer>
-  <!-- ======= End Footer ======= -->
-
-  <!-- Back to top -->
-  <a href="#hero" class="back-to-top scrollto" id="backToTop" aria-label="Back to top">
-    <i class="bi bi-arrow-up"></i>
-  </a>
-
-  <!-- ======= Scripts ======= -->
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Typed.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
-  <!-- GLightbox -->
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
-  <!-- Main JS -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

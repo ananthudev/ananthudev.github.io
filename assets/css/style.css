@@ -1117,6 +1117,166 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ===================================================
+   RESEARCH INTERESTS SECTION
+   =================================================== */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.research-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.research-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-glow), transparent 60%);
+  opacity: 0;
+  transition: var(--transition);
+  border-radius: inherit;
+}
+
+.research-card:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+.research-card:hover::before {
+  opacity: 1;
+}
+
+.research-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: block;
+  position: relative;
+}
+
+.research-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.research-card p {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  position: relative;
+}
+
+/* ===================================================
+   ARTICLES SECTION
+   =================================================== */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.article-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article-card:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+.article-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+
+.article-icon {
+  font-size: 1.5rem;
+  color: var(--accent-purple);
+  display: block;
+  margin-top: 4px;
+}
+
+.article-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  padding-right: 40px;
+}
+
+.article-card p {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.article-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  background: rgba(124, 92, 191, 0.12);
+  border: 1px solid rgba(124, 92, 191, 0.25);
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ===================================================
+   FOOTER IDENTITY
+   =================================================== */
+.footer-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.footer-role-line {
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+  opacity: 0.85;
+}
+
+/* ===================================================
    RESPONSIVE — Tablet (≤ 1024px)
    =================================================== */
 @media (max-width: 1024px) {
@@ -1134,6 +1294,10 @@ h1, h2, h3, h4, h5 {
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 
   .masonry-grid { columns: 2; }
+
+  .research-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .articles-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ===================================================
@@ -1175,6 +1339,10 @@ h1, h2, h3, h4, h5 {
   .section-title { font-size: 1.8rem; }
 
   .about-img-wrap img { height: 260px; }
+
+  .research-grid { grid-template-columns: 1fr; }
+
+  .articles-grid { grid-template-columns: 1fr; }
 }
 
 /* ===================================================
