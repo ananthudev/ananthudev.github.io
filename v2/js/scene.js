@@ -257,7 +257,7 @@ if (renderer) {
   // Optional GLB replaces the procedural interceptor.
   // Current hero: "Missile" by Jarlan Perez (CC-BY 3.0) via poly.pizza,
   // restyled with the holographic amber treatment to match the scene.
-  new GLTFLoader().load("models/hero.glb", (gltf) => {
+  new GLTFLoader().load("../models/hero.glb", (gltf) => {
     const m = gltf.scene;
     // restyle: dark hull + amber wireframe overlay, like the procedural models
     const overlays = [];

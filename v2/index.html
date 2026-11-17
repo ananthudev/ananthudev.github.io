@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ananthu Dev D V | Aerospace &amp; Defence Software Engineer — Flight Software, GNC &amp; Embedded Systems</title>
+    <meta
+      name="description"
+      content="Ananthu Dev D V — Project Engineer, Aerospace &amp; Defence. Onboard flight software for precision-guided systems: flight software sequencing, Guidance Navigation &amp; Control (GNC), embedded systems, aerospace simulation and verification &amp; validation."
+    />
+    <meta
+      name="keywords"
+      content="Ananthu Dev, Ananthu Dev D V, Project Engineer, Aerospace Software Engineer, Defence Software Engineer, Flight Software Development, Embedded Systems, Guidance Navigation Control, GNC, Aerospace Simulation, Systems Integration, Mission Critical Software, Embedded C, Python, MATLAB, Verification Validation, Trivandrum, Kerala, India"
+    />
+    <meta name="author" content="Ananthu Dev D V" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://ananthudev.github.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ananthu Dev D V" />
+    <meta property="og:url" content="https://ananthudev.github.io/v2/" />
+    <meta property="og:title" content="Ananthu Dev D V | Aerospace &amp; Defence Software Engineer" />
+    <meta
+      property="og:description"
+      content="Project Engineer — Aerospace &amp; Defence. Flight software, GNC, embedded systems and aerospace simulation for mission-critical systems."
+    />
+    <meta property="og:image" content="https://ananthudev.github.io/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ananthu Dev D V — Project Engineer, Aerospace and Defence" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ananthudev_dv" />
+    <meta name="twitter:title" content="Ananthu Dev D V | Aerospace &amp; Defence Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Project Engineer — Aerospace &amp; Defence. Flight software, GNC, embedded systems and aerospace simulation for mission-critical systems."
+    />
+    <meta name="twitter:image" content="https://ananthudev.github.io/img/og-image.jpg" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ananthu Dev D V",
+        "alternateName": "Ananthu Dev",
+        "jobTitle": "Project Engineer — Aerospace & Defence Software",
+        "description": "Aerospace & Defence software engineer specialising in onboard flight software, Guidance Navigation & Control (GNC), embedded systems, aerospace simulation, systems integration and verification & validation.",
+        "url": "https://ananthudev.github.io/",
+        "image": "https://ananthudev.github.io/img/profile-web.jpg",
+        "email": "ananthudevdv@gmail.com",
+        "sameAs": [
+          "https://github.com/ananthudev",
+          "https://www.linkedin.com/in/ananthudev/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Trivandrum",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": [
+          "Flight Software Development",
+          "Embedded Systems",
+          "Guidance Navigation & Control",
+          "Aerospace Simulation",
+          "Systems Integration",
+          "Mission-Critical Software",
+          "Verification & Validation",
+          "Embedded C",
+          "Python",
+          "MATLAB",
+          "C++",
+          "Real-Time Systems",
+          "Defence Technology"
+        ]
+      }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="../favicon.ico" sizes="32x32" />
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- ======= Boot overlay ======= -->
+    <div id="boot" aria-hidden="true">
+      <pre id="boot-log"></pre>
+      <div id="boot-skip">PRESS ANY KEY / TAP TO SKIP</div>
+    </div>
+
+    <!-- ======= 3D scene ======= -->
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div id="scanlines" aria-hidden="true"></div>
+
+    <!-- ======= HUD top bar ======= -->
+    <header id="topbar">
+      <div class="tb-left">
+        <span class="tb-callsign">ADV-01&nbsp;//&nbsp;ANANTHU DEV D V</span>
+        <span class="tb-role">PROJECT ENGINEER · AEROSPACE &amp; DEFENCE</span>
+      </div>
+      <div class="tb-right">
+        <span class="tb-status"><span class="blink-dot"></span>SYSTEMS NOMINAL</span>
+        <span id="tb-clock">--:--:-- UTC</span>
+      </div>
+    </header>
+
+    <!-- ======= Nav rail ======= -->
+    <nav id="navrail" aria-label="Sections">
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">☰</button>
+      <ul id="navlist">
+        <li><a href="#ops" class="active"><span class="nv-id">01</span><span class="nv-label">OPERATOR</span></a></li>
+        <li><a href="#fsw"><span class="nv-id">02</span><span class="nv-label">FLIGHT SW</span></a></li>
+        <li><a href="#gnc"><span class="nv-id">03</span><span class="nv-label">GNC</span></a></li>
+        <li><a href="#sim"><span class="nv-id">04</span><span class="nv-label">SIMULATION</span></a></li>
+        <li><a href="#tools"><span class="nv-id">05</span><span class="nv-label">TOOLS</span></a></li>
+        <li><a href="#vnv"><span class="nv-id">06</span><span class="nv-label">V&amp;V</span></a></li>
+        <li><a href="#stack"><span class="nv-id">07</span><span class="nv-label">STACK</span></a></li>
+        <li><a href="#hangar"><span class="nv-id">08</span><span class="nv-label">HANGAR</span></a></li>
+        <li><a href="#field"><span class="nv-id">09</span><span class="nv-label">FIELD</span></a></li>
+        <li><a href="#comms"><span class="nv-id">10</span><span class="nv-label">COMMS</span></a></li>
+      </ul>
+    </nav>
+
+    <main id="content">
+      <!-- ======= 01 OPERATOR ======= -->
+      <section id="ops" data-module="ops">
+        <div class="panel panel-hero">
+          <div class="panel-tag">MODULE 01 // OPERATOR PROFILE</div>
+          <h1>ANANTHU&nbsp;DEV&nbsp;D&nbsp;V</h1>
+          <p class="hero-role">
+            PROJECT ENGINEER — AEROSPACE &amp; DEFENCE<br />
+            <span id="typed-roles" class="typed-roles"></span><span class="typed-caret">▌</span>
+          </p>
+          <p class="hero-copy">
+            I build mission-critical onboard software for precision-guided
+            aerospace and defence systems — flight software sequencing,
+            Guidance, Navigation &amp; Control, embedded real-time execution,
+            simulation and verification. I enjoy turning algorithms and
+            system architectures into dependable real-world flight code.
+          </p>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-v">C / C++</span><span class="stat-k">FLIGHT CODE</span></div>
+            <div class="stat"><span class="stat-v">GNC</span><span class="stat-k">GUIDANCE · NAV · CONTROL</span></div>
+            <div class="stat"><span class="stat-v">MIL / HIL</span><span class="stat-k">SIM &amp; INTEGRATION</span></div>
+            <div class="stat"><span class="stat-v">V&amp;V</span><span class="stat-k">MISSION ASSURANCE</span></div>
+          </div>
+          <div class="hero-cta">
+            <a class="btn" href="#fsw">ENTER CONSOLE ▸</a>
+            <a class="btn btn-ghost" href="#comms">OPEN COMMS</a>
+          </div>
+        </div>
+        <aside class="panel panel-photo">
+          <div class="photo-frame">
+            <img src="../img/profile-web.jpg" alt="Ananthu Dev D V" width="900" height="1125" />
+            <div class="photo-corners" aria-hidden="true"></div>
+          </div>
+          <div class="photo-meta">
+            <span>CALLSIGN: ADV-01</span>
+            <span>STATION: TRIVANDRUM, KERALA, IN</span>
+            <span>STATUS: <em class="ok">ACTIVE</em></span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ======= 02 FLIGHT SOFTWARE ======= -->
+      <section id="fsw" data-module="fsw">
+        <div class="panel">
+          <div class="panel-tag">MODULE 02 // FLIGHT SOFTWARE</div>
+          <h2>ONBOARD FLIGHT SOFTWARE &amp; SEQUENCER</h2>
+          <p>
+            I develop onboard flight software in <strong>C</strong> for
+            precision-guided projectile defence systems, focused on embedded
+            execution, real-time behaviour and mission-critical reliability.
+            I designed, architected and implemented the
+            <strong>Flight Software Sequencer</strong> — the component that owns
+            mission sequencing, subsystem coordination, execution flow and
+            state-transition management from power-on to end of mission.
+          </p>
+          <div class="seq-console" aria-label="Illustrative mission phase sequencer">
+            <div class="seq-title">MISSION SEQUENCER <span class="dim">— ILLUSTRATIVE</span></div>
+            <div class="seq-states" id="seq-states">
+              <button class="seq-state active" data-phase="0">BOOT</button>
+              <span class="seq-arrow">▸</span>
+              <button class="seq-state" data-phase="1">ARM</button>
+              <span class="seq-arrow">▸</span>
+              <button class="seq-state" data-phase="2">LAUNCH</button>
+              <span class="seq-arrow">▸</span>
+              <button class="seq-state" data-phase="3">MIDCOURSE</button>
+              <span class="seq-arrow">▸</span>
+              <button class="seq-state" data-phase="4">TERMINAL</button>
+            </div>
+            <pre id="seq-readout" class="seq-readout"></pre>
+            <button id="seq-auto" class="btn btn-small">▶ RUN SEQUENCE</button>
+          </div>
+          <ul class="feat-list">
+            <li>Mission sequencing &amp; state-transition management</li>
+            <li>Subsystem coordination and execution-flow control</li>
+            <li>Embedded deployment · real-time execution frameworks</li>
+            <li>Software architecture documents &amp; technical flowcharts</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======= 03 GNC ======= -->
+      <section id="gnc" data-module="gnc">
+        <div class="panel panel-right">
+          <div class="panel-tag">MODULE 03 // GUIDANCE · NAVIGATION · CONTROL</div>
+          <h2>GNC — FROM ALGORITHM TO FLIGHT CODE</h2>
+          <p>
+            I developed the software architecture for onboard
+            <strong>Guidance</strong> — translating algorithmic models into
+            operational flight software modules and designing their execution
+            frameworks for embedded deployment. I integrated Guidance,
+            Navigation &amp; Control subsystems into the overall flight
+            software architecture and supported system-level verification,
+            validation and hardware integration.
+          </p>
+          <div class="gnc-ctl">
+            <button id="gnc-replay" class="btn btn-small">▶ REPLAY INTERCEPT</button>
+            <span class="dim">Generic pursuit geometry — illustrative only.</span>
+          </div>
+          <ul class="feat-list">
+            <li>Guidance algorithm → operational flight software translation</li>
+            <li>GNC subsystem integration into flight architecture</li>
+            <li>Execution frameworks for embedded targets</li>
+            <li>Support for system-level V&amp;V and hardware integration</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======= 04 SIMULATION ======= -->
+      <section id="sim" data-module="sim">
+        <div class="panel">
+          <div class="panel-tag">MODULE 04 // AEROSPACE SIMULATION</div>
+          <h2>ORBITS, TRAJECTORIES &amp; MODEL-IN-THE-LOOP</h2>
+          <p>
+            I have contributed to <strong>satellite mission simulation</strong>
+            and Model-in-the-Loop (MIL) development — orbit determination,
+            numerical propagation, reference-frame transformations, simulation
+            framework development, automated testing and system-level
+            validation for space applications.
+          </p>
+          <p>
+            Previously I led development of <strong>ASTRA GUI</strong>, a
+            mission-planning and trajectory-optimization platform built with
+            Electron.js on a high-performance C++ simulation backend —
+            contributing to both the frontend and backend optimization
+            workflows.
+          </p>
+          <ul class="feat-list">
+            <li>Orbit determination · numerical propagation · frame transforms</li>
+            <li>MIL simulation frameworks &amp; automated testing</li>
+            <li>Trajectory optimization tooling (Electron.js + C++)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======= 05 TOOLS ======= -->
+      <section id="tools" data-module="tools">
+        <div class="panel panel-right">
+          <div class="panel-tag">MODULE 05 // ENGINEERING TOOLS &amp; TELEMETRY</div>
+          <h2>TOOLS THAT MAKE TESTING FASTER</h2>
+          <p>
+            Beyond flight code, I build <strong>Python</strong> applications for
+            sensor-data verification, telemetry analysis and subsystem
+            validation — letting engineering teams analyse hardware performance
+            and flight-test data quickly instead of wrestling with raw logs.
+          </p>
+          <div class="tele-wall" aria-label="Illustrative telemetry charts">
+            <div class="tele-box"><span class="tele-label">CH-01 ACCEL [g]</span><canvas class="tele-chart" data-kind="accel"></canvas></div>
+            <div class="tele-box"><span class="tele-label">CH-02 GYRO [deg/s]</span><canvas class="tele-chart" data-kind="gyro"></canvas></div>
+            <div class="tele-box"><span class="tele-label">CH-03 ALT [m]</span><canvas class="tele-chart" data-kind="alt"></canvas></div>
+            <div class="tele-note dim">SYNTHETIC SIGNALS — ILLUSTRATIVE</div>
+          </div>
+          <ul class="feat-list">
+            <li>Sensor-data verification &amp; telemetry analysis apps (Python / Tkinter)</li>
+            <li>Subsystem validation &amp; flight-test data workflows</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======= 06 V&V ======= -->
+      <section id="vnv" data-module="vnv">
+        <div class="panel">
+          <div class="panel-tag">MODULE 06 // INTEGRATION &amp; V&amp;V</div>
+          <h2>VERIFICATION, VALIDATION &amp; HARDWARE INTEGRATION</h2>
+          <p>
+            Flight software only counts when it survives contact with hardware.
+            I participate in software debugging, telemetry analysis, hardware
+            integration, milestone reviews and end-to-end testing — plus the
+            architecture documents, validation reports and engineering
+            documentation that keep a mission-critical program auditable.
+          </p>
+          <ol class="vnv-flow" aria-label="Verification flow">
+            <li>MODEL</li><li>MIL</li><li>SIL</li><li>HIL</li><li>FLIGHT TEST</li>
+          </ol>
+          <ul class="feat-list">
+            <li>Software integration, verification &amp; validation</li>
+            <li>Hardware-in-loop testing &amp; debugging</li>
+            <li>Validation reports, subsystem documentation, milestone reviews</li>
+            <li>Cross-discipline work with Guidance, Nav, Control, SW &amp; HW teams</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======= 07 STACK ======= -->
+      <section id="stack" data-module="stack">
+        <div class="panel panel-right">
+          <div class="panel-tag">MODULE 07 // TECH STACK</div>
+          <h2>LANGUAGES &amp; SYSTEMS</h2>
+          <div class="stack-grid">
+            <div class="chip chip-hot">C</div>
+            <div class="chip chip-hot">C++</div>
+            <div class="chip chip-hot">Python</div>
+            <div class="chip">MATLAB</div>
+            <div class="chip">Embedded Systems</div>
+            <div class="chip">Real-Time Execution</div>
+            <div class="chip">Git</div>
+            <div class="chip">Electron.js</div>
+            <div class="chip">Tkinter</div>
+            <div class="chip">Aerospace Simulation</div>
+            <div class="chip">Systems Integration</div>
+            <div class="chip">Verification &amp; Validation</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= 08 HANGAR ======= -->
+      <section id="hangar" data-module="hangar">
+        <div class="panel panel-mini">
+          <div class="panel-tag">MODULE 08 // HANGAR</div>
+          <h2>ASSET VIEWER</h2>
+          <p class="dim">Generic, illustrative airframes — drag to orbit the camera.</p>
+          <div class="hangar-ctl" id="hangar-ctl">
+            <button class="btn btn-small active" data-model="interceptor">INTERCEPTOR</button>
+            <button class="btn btn-small" data-model="launcher">LAUNCH VEHICLE</button>
+            <button class="btn btn-small" data-model="satellite">SATELLITE</button>
+            <button class="btn btn-small" data-model="ugv">GROUND VEHICLE</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= 09 FIELD NOTES ======= -->
+      <section id="field" data-module="field">
+        <div class="panel">
+          <div class="panel-tag">MODULE 09 // FIELD NOTES</div>
+          <h2>OFF-DUTY OPTICS</h2>
+          <p class="dim">Frames from my camera, off the clock.</p>
+          <div class="field-grid" id="field-grid">
+            <img src="../img/field/field-1.jpg" alt="Photography by Ananthu Dev" loading="lazy" />
+            <img src="../img/field/field-2.jpg" alt="Photography by Ananthu Dev" loading="lazy" />
+            <img src="../img/field/field-3.jpg" alt="Photography by Ananthu Dev" loading="lazy" />
+            <img src="../img/field/field-4.jpg" alt="Photography by Ananthu Dev" loading="lazy" />
+            <img src="../img/field/field-5.jpg" alt="Photography by Ananthu Dev" loading="lazy" />
+            <img src="../img/field/field-6.jpg" alt="Photography by Ananthu Dev" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= 10 COMMS ======= -->
+      <section id="comms" data-module="comms">
+        <div class="panel panel-mini">
+          <div class="panel-tag">MODULE 10 // COMMS</div>
+          <h2>ESTABLISH UPLINK</h2>
+          <p>
+            Open to conversations about flight software, GNC, simulation and
+            defence technology.
+          </p>
+          <div class="comms-links">
+            <a class="comm" href="mailto:ananthudevdv@gmail.com"><span class="comm-k">EMAIL</span><span class="comm-v">ananthudevdv@gmail.com</span></a>
+            <a class="comm" href="https://www.linkedin.com/in/ananthudev/" target="_blank" rel="noopener"><span class="comm-k">LINKEDIN</span><span class="comm-v">/in/ananthudev</span></a>
+            <a class="comm" href="https://github.com/ananthudev" target="_blank" rel="noopener"><span class="comm-k">GITHUB</span><span class="comm-v">/ananthudev</span></a>
+          </div>
+          <p class="dim">STATION: TRIVANDRUM · KERALA · INDIA</p>
+        </div>
+      </section>
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <span><a id="legacy-link" href="../legacy/" aria-label="Previous version of this site">©</a> <span id="year"></span> ANANTHU DEV D V — ALL SYSTEMS NOMINAL</span>
+        <span class="dim">VISUALS ARE GENERIC &amp; ILLUSTRATIVE · NOT AFFILIATED WITH ANY PROGRAM · HERO MODEL: <a class="dim-link" href="https://poly.pizza/m/1Xid2Qhqn2s" target="_blank" rel="noopener">"MISSILE" BY JARLAN PEREZ (CC-BY)</a></span>
+      </footer>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" hidden><img id="lightbox-img" alt="" /><button id="lightbox-close" aria-label="Close">✕</button></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="js/scene.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
