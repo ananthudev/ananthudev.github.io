@@ -254,20 +254,49 @@ if (renderer) {
   scene.add(heroGroup);
   let activeModel = "interceptor";
 
-  // Optional user-supplied GLB replaces the procedural interceptor
+  // Optional GLB replaces the procedural interceptor.
+  // Current hero: "Missile" by Jarlan Perez (CC-BY 3.0) via poly.pizza,
+  // restyled with the holographic amber treatment to match the scene.
   new GLTFLoader().load("models/hero.glb", (gltf) => {
     const m = gltf.scene;
+    // restyle: dark hull + amber wireframe overlay, like the procedural models
+    const overlays = [];
+    m.traverse((o) => {
+      if (o.isMesh) {
+        o.material = matHull(0x1e2125);
+        const w = new THREE.Mesh(o.geometry, matWire(AMBER, 0.25));
+        w.scale.setScalar(1.015);
+        overlays.push([o, w]);
+      }
+    });
+    for (const [o, w] of overlays) o.add(w);
+    // normalize size and ground the base
     const box = new THREE.Box3().setFromObject(m);
     const size = box.getSize(new THREE.Vector3());
-    const s = 4.5 / Math.max(size.x, size.y, size.z);
+    const s = 4.8 / Math.max(size.x, size.y, size.z);
+    const wrap = new THREE.Group();
+    wrap.add(m);
     m.scale.setScalar(s);
     box.setFromObject(m);
+    const c = box.getCenter(new THREE.Vector3());
+    m.position.x -= c.x;
+    m.position.z -= c.z;
     m.position.y -= box.min.y;
+    // engine flame + glow so the launch animation works on the GLB too
+    const flame = new THREE.Mesh(new THREE.ConeGeometry(0.26, 1.4, 20, 1, true), matGlow(0xffc46e, 0.85));
+    flame.rotation.x = Math.PI;
+    flame.position.y = -0.75;
+    flame.name = "flame";
+    const flameCore = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.9, 16, 1, true), matGlow(0xffffff, 0.9));
+    flameCore.rotation.x = Math.PI;
+    flameCore.position.y = -0.5;
+    flameCore.name = "flameCore";
+    wrap.add(flame, flameCore);
     models.interceptor.visible = false;
-    heroGroup.add(m);
-    models.interceptor = m;
-    if (activeModel === "interceptor") m.visible = true;
-    else m.visible = false;
+    heroGroup.remove(models.interceptor);
+    heroGroup.add(wrap);
+    models.interceptor = wrap;
+    wrap.visible = activeModel === "interceptor";
   }, undefined, () => { /* no GLB provided — procedural hero stays */ });
 
   /* ---------- Earth + orbit (Simulation) ---------- */

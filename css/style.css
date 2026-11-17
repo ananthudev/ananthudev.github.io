@@ -499,6 +499,8 @@ strong { color: var(--amber-hi); font-weight: 600; }
   border-top: 1px solid var(--amber-faint);
   background: rgba(6, 7, 9, 0.9);
 }
+.dim-link { color: inherit; text-decoration: none; }
+.dim-link:hover { color: var(--amber); }
 #legacy-link { color: inherit; text-decoration: none; cursor: default; }
 #legacy-link:hover { color: var(--amber); }
 
