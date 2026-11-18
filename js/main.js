@@ -1,5 +1,5 @@
 /* ============================================================
-   Mission Film — director: scroll, HUD, sound, panels
+   THE RANGE — director: scroll, chapters, sound, panels
    ============================================================ */
 import { createWorld } from "./world.js";
 
@@ -12,7 +12,7 @@ const MOBILE = matchMedia("(max-width: 860px)").matches;
 
 $("#year").textContent = new Date().getFullYear();
 
-/* ---------- Sound engine (synthesized, off by default) ---------- */
+/* ---------- sound (synthesized, off by default) ---------- */
 class SoundEngine {
   constructor() { this.on = false; this.ctx = null; }
   ensure() {
@@ -23,46 +23,44 @@ class SoundEngine {
     this.master = this.ctx.createGain();
     this.master.gain.value = 0;
     this.master.connect(this.ctx.destination);
-    const noiseBuf = this.ctx.createBuffer(1, this.ctx.sampleRate * 2, this.ctx.sampleRate);
-    const d = noiseBuf.getChannelData(0);
+    const buf = this.ctx.createBuffer(1, this.ctx.sampleRate * 2, this.ctx.sampleRate);
+    const d = buf.getChannelData(0);
     let last = 0;
-    for (let i = 0; i < d.length; i++) { // brown-ish noise
+    for (let i = 0; i < d.length; i++) {
       const w = Math.random() * 2 - 1;
       last = (last + 0.02 * w) / 1.02;
       d[i] = last * 3.2;
     }
-    this.noiseBuf = noiseBuf;
-    // rumble
-    this.rumble = this.loop(noiseBuf, "lowpass", 85, 0);
-    // air hiss / space tone
-    this.hiss = this.loop(noiseBuf, "bandpass", 2400, 0);
+    this.noiseBuf = buf;
+    this.wind = this.loop(buf, "bandpass", 420, 0);
+    this.rumble = this.loop(buf, "lowpass", 70, 0);
   }
   loop(buf, type, freq, gain) {
     const src = this.ctx.createBufferSource();
     src.buffer = buf; src.loop = true;
     const f = this.ctx.createBiquadFilter();
-    f.type = type; f.frequency.value = freq;
+    f.type = type; f.frequency.value = freq; f.Q.value = 0.4;
     const g = this.ctx.createGain();
     g.gain.value = gain;
     src.connect(f); f.connect(g); g.connect(this.master);
     src.start();
     return g;
   }
-  setAmbient(rumble, hiss, dt) {
+  setAmbient(wind, rumble, dt) {
     if (!this.ctx) return;
     const k = 1 - Math.pow(0.02, dt);
+    this.wind.gain.value = lerp(this.wind.gain.value, wind, k);
     this.rumble.gain.value = lerp(this.rumble.gain.value, rumble, k);
-    this.hiss.gain.value = lerp(this.hiss.gain.value, hiss, k);
   }
-  burst(freq, dur, peak, type = "lowpass") {
+  boom(freq = 55, dur = 2.4, peak = 1.1) { // artillery
     if (!this.ctx || !this.on) return;
     const t0 = this.ctx.currentTime;
     const src = this.ctx.createBufferSource();
     src.buffer = this.noiseBuf;
     const f = this.ctx.createBiquadFilter();
-    f.type = type;
-    f.frequency.setValueAtTime(freq * 5, t0);
-    f.frequency.exponentialRampToValueAtTime(freq, t0 + dur);
+    f.type = "lowpass";
+    f.frequency.setValueAtTime(900, t0);
+    f.frequency.exponentialRampToValueAtTime(freq, t0 + dur * 0.7);
     const g = this.ctx.createGain();
     g.gain.setValueAtTime(peak, t0);
     g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
@@ -70,30 +68,48 @@ class SoundEngine {
     src.start(t0); src.stop(t0 + dur + 0.1);
     const o = this.ctx.createOscillator();
     o.type = "sine";
-    o.frequency.setValueAtTime(44, t0);
+    o.frequency.setValueAtTime(38, t0);
+    o.frequency.exponentialRampToValueAtTime(24, t0 + dur);
     const og = this.ctx.createGain();
-    og.gain.setValueAtTime(peak * 0.8, t0);
-    og.gain.exponentialRampToValueAtTime(0.001, t0 + dur * 1.2);
+    og.gain.setValueAtTime(peak * 0.9, t0);
+    og.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
     o.connect(og); og.connect(this.master);
-    o.start(t0); o.stop(t0 + dur * 1.2 + 0.1);
+    o.start(t0); o.stop(t0 + dur + 0.1);
   }
-  beep(freq = 980, dur = 0.09, vol = 0.1) {
+  whoosh(dur = 1.2, peak = 0.35) {
+    if (!this.ctx || !this.on) return;
+    const t0 = this.ctx.currentTime;
+    const src = this.ctx.createBufferSource();
+    src.buffer = this.noiseBuf;
+    const f = this.ctx.createBiquadFilter();
+    f.type = "bandpass"; f.Q.value = 1.2;
+    f.frequency.setValueAtTime(300, t0);
+    f.frequency.exponentialRampToValueAtTime(2600, t0 + dur * 0.4);
+    f.frequency.exponentialRampToValueAtTime(240, t0 + dur);
+    const g = this.ctx.createGain();
+    g.gain.setValueAtTime(0.001, t0);
+    g.gain.exponentialRampToValueAtTime(peak, t0 + dur * 0.35);
+    g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+    src.connect(f); f.connect(g); g.connect(this.master);
+    src.start(t0); src.stop(t0 + dur + 0.1);
+  }
+  click(freq = 1100, dur = 0.05, vol = 0.05) {
     if (!this.ctx || !this.on) return;
     const t0 = this.ctx.currentTime;
     const o = this.ctx.createOscillator();
-    o.type = "square"; o.frequency.value = freq;
+    o.type = "triangle"; o.frequency.value = freq;
     const g = this.ctx.createGain();
     g.gain.setValueAtTime(vol, t0);
     g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
     o.connect(g); g.connect(this.master);
-    o.start(t0); o.stop(t0 + dur + 0.05);
+    o.start(t0); o.stop(t0 + dur + 0.03);
   }
   toggle() {
     this.ensure();
     if (!this.ctx) return false;
     if (this.ctx.state === "suspended") this.ctx.resume();
     this.on = !this.on;
-    this.master.gain.linearRampToValueAtTime(this.on ? 0.55 : 0, this.ctx.currentTime + 0.4);
+    this.master.gain.linearRampToValueAtTime(this.on ? 0.5 : 0, this.ctx.currentTime + 0.4);
     return this.on;
   }
 }
@@ -102,36 +118,12 @@ const sndBtn = $("#sndBtn");
 sndBtn.addEventListener("click", () => {
   const on = snd.toggle();
   sndBtn.setAttribute("aria-pressed", on);
-  sndBtn.textContent = on ? "SND ◉" : "SND ○";
+  sndBtn.textContent = on ? "SOUND ON" : "SOUND OFF";
 });
-
-/* ---------- text scramble ---------- */
-const GLYPHS = "█▓▒░<>/\\|=+*#";
-function scramble(el) {
-  if (REDUCED) return;
-  const orig = el.dataset.orig || (el.dataset.orig = el.textContent);
-  const n = orig.length;
-  const t0 = performance.now(), dur = 620;
-  (function tick(now) {
-    const k = clamp01((now - t0) / dur);
-    const solid = Math.floor(k * n);
-    let out = orig.slice(0, solid);
-    for (let i = solid; i < n; i++) out += orig[i] === " " ? " " : GLYPHS[(Math.random() * GLYPHS.length) | 0];
-    el.textContent = out;
-    if (k < 1) requestAnimationFrame(tick);
-    else el.textContent = orig;
-  })(t0);
-}
 
 /* ---------- panel reveal ---------- */
 const reveal = new IntersectionObserver(
-  (es) => es.forEach((e) => {
-    if (e.isIntersecting && !e.target.classList.contains("revealed")) {
-      e.target.classList.add("revealed");
-      const h = e.target.querySelector("h1, h2");
-      if (h) scramble(h);
-    }
-  }),
+  (es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("revealed")),
   { threshold: 0.2 }
 );
 $$(".panel").forEach((p) => reveal.observe(p));
@@ -152,8 +144,7 @@ addEventListener("keydown", (e) => { if (e.key === "Escape" && !lightbox.hidden)
 /* ---------- telemetry charts ---------- */
 const charts = $$(".tele-chart");
 let chartsLive = false;
-new IntersectionObserver((es) => es.forEach((e) => (chartsLive = e.isIntersecting)), { threshold: 0.1 })
-  .observe(charts[0] || document.body);
+if (charts[0]) new IntersectionObserver((es) => es.forEach((e) => (chartsLive = e.isIntersecting)), { threshold: 0.1 }).observe(charts[0]);
 function drawCharts(ts) {
   if (!chartsLive) return;
   for (const c of charts) {
@@ -164,12 +155,11 @@ function drawCharts(ts) {
     const x = c.getContext("2d");
     x.setTransform(dpr, 0, 0, dpr, 0, 0);
     x.clearRect(0, 0, w, h);
-    x.strokeStyle = "rgba(255,171,64,0.15)";
+    x.strokeStyle = "rgba(255,255,255,0.12)";
     x.lineWidth = 1;
     for (let gy = 0; gy <= h; gy += h / 3) { x.beginPath(); x.moveTo(0, gy); x.lineTo(w, gy); x.stroke(); }
     const kind = c.dataset.kind;
-    x.strokeStyle = "#ffab40"; x.lineWidth = 1.4;
-    x.shadowColor = "rgba(255,171,64,0.6)"; x.shadowBlur = 4;
+    x.strokeStyle = "#e8e4dc"; x.lineWidth = 1.3;
     x.beginPath();
     const t0 = (REDUCED ? 0 : ts) / 1000;
     for (let px = 0; px <= w; px += 2) {
@@ -182,7 +172,6 @@ function drawCharts(ts) {
       px === 0 ? x.moveTo(px, y) : x.lineTo(px, y);
     }
     x.stroke();
-    x.shadowBlur = 0;
   }
 }
 
@@ -192,33 +181,36 @@ const loader = $("#loader");
 const acts = $$("section.act");
 const railDots = $$("#rail button");
 const actLabel = $("#actlabel");
-const countEl = $("#count");
 const calloutEl = $("#callout");
-const reticle = $("#reticle");
 const cut = $("#cut");
-const interceptPanel = $('[data-act="intercept"] .panel');
 
-const CUTS = new Set(["launch>gnc", "gnc>launch", "intercept>orbit", "orbit>intercept", "orbit>station", "station>orbit", "station>hangar", "hangar>station", "hangar>dawn", "dawn>hangar"]);
-const LETTERBOX = new Set(["launch", "gnc", "intercept"]);
+const CUTS = new Set([
+  "firemission>tel", "tel>firemission", "tel>jet", "jet>tel", "jet>mlrs", "mlrs>jet",
+  "mlrs>night", "night>mlrs", "night>studio", "studio>night", "studio>comms", "comms>studio",
+]);
+const LETTERBOX = new Set(["firemission", "tel", "jet", "mlrs"]);
 const ACT_NAMES = {
-  title: "ACT 0 · PAD 7 — NIGHT", countdown: "ACT I · OPERATOR", launch: "ACT II · ASCENT",
-  gnc: "ACT III · GUIDANCE", intercept: "ACT IV · INTERCEPT", orbit: "ACT V · ORBIT",
-  station: "ACT VI · GROUND STATION", hangar: "ACT VII · ARSENAL", dawn: "ACT VIII · DAWN",
+  title: "THE RANGE — DUSK", operator: "CH·01 THE OPERATOR", firemission: "CH·02 FIRE MISSION",
+  tel: "CH·03 GUIDANCE", jet: "CH·04 FLIGHT TEST", mlrs: "CH·05 TRAJECTORIES",
+  night: "CH·06 NIGHT WATCH", studio: "CH·07 THE ARSENAL", comms: "CH·08 END CARD",
 };
-const AMBIENT = { // [rumble, hiss]
-  title: [0.1, 0.012], countdown: [0.12, 0.012], launch: [0.5, 0.02], gnc: [0.1, 0.045],
-  intercept: [0.12, 0.045], orbit: [0.015, 0.05], station: [0.07, 0.02], hangar: [0.05, 0.01], dawn: [0.08, 0.015],
+const AMBIENT = { // [wind, rumble]
+  title: [0.05, 0.04], operator: [0.05, 0.05], firemission: [0.045, 0.06], tel: [0.04, 0.06],
+  jet: [0.05, 0.1], mlrs: [0.04, 0.07], night: [0.03, 0.03], studio: [0.008, 0.02], comms: [0.03, 0.03],
 };
 const CALLOUTS = [
-  { act: "launch", q: 0.085, text: "LIFTOFF", snd: () => snd.burst(70, 2.2, 0.8) },
-  { act: "launch", q: 0.4, text: "BOOST PHASE", snd: () => snd.beep(760) },
-  { act: "launch", q: 0.75, text: "MIDCOURSE", snd: () => snd.beep(880) },
-  { act: "gnc", q: 0.22, text: "GUIDANCE ACTIVE", snd: () => snd.beep(980) },
-  { act: "gnc", q: 0.65, text: "TARGET TRACK", snd: () => snd.beep(1100, 0.07) },
-  { act: "intercept", q: 0.32, text: "TERMINAL LOCK", snd: () => { snd.beep(1240, 0.07); snd.beep(1240, 0.07); } },
-  { act: "intercept", q: 0.705, text: "INTERCEPT CONFIRMED", snd: () => snd.burst(110, 1.6, 0.9, "bandpass") },
-  { act: "orbit", q: 0.2, text: "PAYLOAD DEPLOYED", snd: () => snd.beep(660, 0.12) },
-  { act: "dawn", q: 0.1, text: "MISSION COMPLETE", snd: () => snd.beep(520, 0.14, 0.08) },
+  { act: "firemission", q: 0.1, text: "ELEVATION SET", snd: () => snd.click(900) },
+  { act: "firemission", q: 0.3, text: "GUN READY", snd: () => snd.click(1200) },
+  { act: "firemission", q: 0.342, text: "FIRE", big: true, snd: () => snd.boom(55, 2.6, 1.15) },
+  { act: "firemission", q: 0.872, text: "SPLASH · TARGET", snd: () => snd.boom(70, 1.8, 0.7) },
+  { act: "tel", q: 0.12, text: "ERECTOR UP", snd: () => snd.click(800) },
+  { act: "tel", q: 0.5, text: "GNC ALIGNED", snd: () => snd.click(1100) },
+  { act: "tel", q: 0.625, text: "MISSILE AWAY", big: true, snd: () => snd.boom(80, 2.2, 0.9) },
+  { act: "jet", q: 0.42, text: "LOW PASS", snd: () => snd.whoosh(1.6, 0.5) },
+  { act: "mlrs", q: 0.225, text: "RIPPLE FIRE", big: true, snd: () => { snd.boom(90, 1.2, 0.55); snd.whoosh(1.1, 0.3); } },
+  { act: "mlrs", q: 0.5, text: "SIX AWAY", snd: () => snd.whoosh(1, 0.25) },
+  { act: "night", q: 0.25, text: "NIGHT WATCH", snd: () => snd.click(700, 0.08) },
+  { act: "comms", q: 0.15, text: "END OF EXERCISE", snd: () => snd.click(600, 0.1) },
 ];
 const armed = CALLOUTS.map(() => true);
 let calloutTimer = 0;
@@ -248,7 +240,7 @@ function hud(p, dt) {
   if (id !== prevAct) {
     if (CUTS.has(`${prevAct}>${id}`)) {
       cut.classList.add("dip");
-      setTimeout(() => cut.classList.remove("dip"), 420);
+      setTimeout(() => cut.classList.remove("dip"), 400);
     }
     prevAct = id;
     actLabel.textContent = ACT_NAMES[id] || id.toUpperCase();
@@ -256,31 +248,14 @@ function hud(p, dt) {
     document.body.classList.toggle("letterbox", LETTERBOX.has(id));
   }
 
-  // countdown digits
-  if (id === "countdown" && q > 0.25) {
-    const n = Math.max(1, Math.ceil(10 * (1 - (q - 0.25) / 0.75)));
-    if (countEl.textContent !== String(n)) {
-      countEl.textContent = n;
-      countEl.classList.remove("tick");
-      void countEl.offsetWidth;
-      countEl.classList.add("tick");
-      snd.beep(n <= 3 ? 1180 : 860, 0.06, 0.07);
-    }
-    countEl.hidden = false;
-  } else if (id === "launch" && q < 0.055) {
-    countEl.textContent = "IGNITION";
-    countEl.hidden = false;
-  } else countEl.hidden = true;
-
-  // callouts
   CALLOUTS.forEach((c, i) => {
     const inAct = c.act === id;
-    const past = inAct && q >= c.q;
-    if (past && armed[i]) {
+    if (inAct && q >= c.q && armed[i]) {
       armed[i] = false;
       calloutEl.textContent = c.text;
+      calloutEl.classList.toggle("big", !!c.big);
       calloutEl.classList.add("show");
-      calloutTimer = 1.9;
+      calloutTimer = c.big ? 1.4 : 2.0;
       c.snd && c.snd();
     }
     if (inAct && q < c.q - 0.04) armed[i] = true;
@@ -291,27 +266,13 @@ function hud(p, dt) {
     if (calloutTimer <= 0) calloutEl.classList.remove("show");
   }
 
-  // seeker reticle — tracks the target on screen
-  const ts = world && world.targetScreen;
-  if (id === "intercept" && q > 0.16 && q < 0.7 && ts && ts.on) {
-    reticle.hidden = false;
-    const k = clamp01((q - 0.16) / 0.3);
-    reticle.style.left = ts.x + "px";
-    reticle.style.top = ts.y + "px";
-    reticle.style.transform = `translate(-50%,-50%) scale(${lerp(2.2, 1, k)})`;
-    reticle.classList.toggle("locked", q > 0.44);
-  } else reticle.hidden = true;
-
-  // late V&V panel after the impact
-  if (interceptPanel) interceptPanel.classList.toggle("show-late", id === "intercept" && q > 0.76);
-
-  // ambient sound targets
-  const amb = AMBIENT[id] || [0.08, 0.01];
+  const amb = AMBIENT[id] || [0.04, 0.04];
   snd.setAmbient(snd.on ? amb[0] : 0, snd.on ? amb[1] : 0, dt);
 }
 
 (async () => {
   world = await createWorld(canvas, { tier: MOBILE ? "low" : "hi" });
+  window.__world = world;
   if (!world) {
     document.body.classList.add("no-webgl");
     loader.classList.add("done");
@@ -321,21 +282,10 @@ function hud(p, dt) {
   measure();
   addEventListener("resize", () => { measure(); world.resize(); });
 
-  // pointer parallax + hangar drag
-  let dragging = false, px0 = 0;
   addEventListener("pointermove", (e) => {
     world.pointer.x = (e.clientX / innerWidth) * 2 - 1;
     world.pointer.y = (e.clientY / innerHeight) * 2 - 1;
-    if (dragging) {
-      world.hangarYaw += (e.clientX - px0) * 0.006;
-      px0 = e.clientX;
-    }
   });
-  addEventListener("pointerdown", (e) => {
-    if (world.currentAct !== "hangar" || e.target.closest(".panel, a, button")) return;
-    dragging = true; px0 = e.clientX;
-  });
-  addEventListener("pointerup", () => (dragging = false));
 
   loader.classList.add("done");
   setTimeout(() => loader.remove(), 900);
@@ -343,15 +293,22 @@ function hud(p, dt) {
   let hintHidden = false;
 
   if (REDUCED) {
-    world.update(0.005, 0.016, 0.4);
+    world.update(0.004, 0.016, 0.4);
     document.body.classList.add("reduced");
     return;
   }
 
+  // auto-degrade on sustained low FPS (once)
+  let slowTime = 0, degraded = false;
   let last = performance.now();
   (function frame(now) {
-    const dt = Math.min((now - last) / 1000, 0.05);
+    const rawDt = (now - last) / 1000;
+    const dt = Math.min(rawDt, 0.05);
     last = now;
+    if (!degraded) {
+      slowTime = rawDt > 0.045 ? slowTime + rawDt : 0;
+      if (slowTime > 3) { degraded = true; world.degrade(); }
+    }
     const span = document.documentElement.scrollHeight - innerHeight;
     const pT = clamp01(scrollY / Math.max(span, 1));
     pS += (pT - pS) * Math.min(1, dt * 6.5);
@@ -366,7 +323,6 @@ function hud(p, dt) {
   })(last);
 })();
 
-/* rail navigation */
 railDots.forEach((d) =>
   d.addEventListener("click", () => {
     const r = ranges.find((x) => x.id === d.dataset.act);
