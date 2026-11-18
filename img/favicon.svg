@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#060709"/>
-  <g fill="none" stroke="#ffab40" stroke-width="3">
-    <circle cx="32" cy="32" r="24" opacity="0.5"/>
-    <circle cx="32" cy="32" r="14" opacity="0.8"/>
-    <line x1="32" y1="4" x2="32" y2="16"/>
-    <line x1="32" y1="48" x2="32" y2="60"/>
-    <line x1="4" y1="32" x2="16" y2="32"/>
-    <line x1="48" y1="32" x2="60" y2="32"/>
-  </g>
-  <path d="M32 20 L36 30 L36 40 L32 36 L28 40 L28 30 Z" fill="#ffc46e"/>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#160d0a"/>
+      <stop offset="0.55" stop-color="#4a2113"/>
+      <stop offset="1" stop-color="#8a4a1d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd9a0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" fill="url(#sky)"/>
+  <circle cx="32" cy="46" r="26" fill="url(#glow)"/>
+  <circle cx="32" cy="46" r="13" fill="#ffc46e"/>
+  <rect y="48" width="64" height="16" fill="#0d0a08"/>
+  <path d="M4 48 Q 32 6 60 48" fill="none" stroke="#f2efe9" stroke-width="3.6" stroke-linecap="round"/>
+  <circle cx="32" cy="27" r="4.4" fill="#f2efe9"/>
 </svg>
